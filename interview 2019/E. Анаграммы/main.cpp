@@ -67,24 +67,15 @@ int main(int argc, char *argv[])
     std::fill(std::begin(c1), std::end(c1), 0);
     std::fill(std::begin(c2), std::end(c2), 0);
 
-    for (auto it=std::begin(s1); it != std::end(s1); ++it)
+    for(const char &sym : s1)
     {
-        ++c1[toascii(*it)-97];
+        ++c1[toascii(sym)-97];
     }
-    for (auto it=std::begin(s2); it != std::end(s2); ++it)
+    for(const char &sym : s2)
     {
-        ++c2[toascii(*it)-97];
+        ++c2[toascii(sym)-97];
     }
+    cout << ( std::equal(std::begin(c1), std::end(c1), std::begin(c2)) ? 1 : 0 );
 
-    for (auto it1=std::begin(c1), it2=std::begin(c2);
-         it1 != std::end(c1) && it2 != std::end(c2); ++it1, ++it2)
-    {
-        if (*it1 != *it2) {
-            cout << 0;
-            return 0;
-        }
-    }
-
-    cout << 1;
     return 0;
 }

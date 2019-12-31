@@ -68,11 +68,9 @@ int main() {
     }
 
     long int curr, prev;
-    cin >> prev;
-    cout << prev << std::endl;
-    for (long int i=1; i<n; ++i) {
+    for (long int i=0; i<n; ++i) {
         cin >> curr;
-        if (curr != prev) {
+        if (i == 0 || curr != prev) {
             cout << curr << std::endl;
             prev = curr;
         }
